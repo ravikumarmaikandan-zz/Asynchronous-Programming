@@ -28,6 +28,7 @@ namespace AsynchronousProgramming
 
         private async void BtnLogin_OnClick(object sender, RoutedEventArgs e)
         {
+            #region Asyncronous using Task
             //btnLogin.IsEnabled = false;
             // var task = Task.Run(() =>
             // {
@@ -58,6 +59,9 @@ namespace AsynchronousProgramming
 
             //    }
             //});
+#endregion
+
+            #region Async Await
             try
             {
                 var result = await LoginAsync();
@@ -66,12 +70,10 @@ namespace AsynchronousProgramming
             }
             catch (Exception)
             {
-                
-               ;
+
                 btnLogin.Content = "Internal Error!!!";
             }
-            
-
+            #endregion
         }
 
         public async Task<string> LoginAsync()
